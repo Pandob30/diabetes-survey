@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ডায়াবেটিস গবেষণা জরিপ — CHT Indigenous Community Study</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Noto+Sans+Bengali:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #1a6b4a;
+  --primary-light: #e8f5ee;
+  --primary-mid: #2d9e6b;
+  --accent: #f0a500;
+  --accent-light: #fff8e6;
+  --text: #1a1a2e;
+  --text-muted: #5a6b7b;
+  --border: #d0dde8;
+  --bg: #f0f5f2;
+  --white: #ffffff;
+  --danger: #e53e3e;
+  --step-done: #2d9e6b;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Hind Siliguri', 'Noto Sans Bengali', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+
+/* ===== HEADER ===== */
+.header {
+  background: linear-gradient(145deg, #062a1a 0%, #0f4a30 40%, #1a6b4a 75%, #2d9e6b 100%);
+  color: white; padding: 0; position: relative; overflow: hidden;
+}
+.header-mountain {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 80px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 80'%3E%3Cpath d='M0,80 L0,50 L120,15 L240,48 L360,8 L480,42 L600,5 L720,38 L840,2 L960,35 L1080,10 L1200,40 L1320,12 L1440,45 L1440,80 Z' fill='rgba(255,255,255,0.05)'/%3E%3Cpath d='M0,80 L0,62 L180,30 L360,58 L540,22 L720,55 L900,20 L1080,50 L1260,28 L1440,55 L1440,80 Z' fill='rgba(255,255,255,0.04)'/%3E%3C/svg%3E") no-repeat bottom; background-size: cover;
+}
+.header-inner { padding: 2.2rem 1.5rem 3.5rem; text-align: center; position: relative; z-index: 1; }
+.uni-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.28);
+  border-radius: 50px; padding: 6px 18px; font-size: 0.76rem; font-weight: 500;
+  margin-bottom: 1.3rem; letter-spacing: 0.4px;
+}
+.header h1 { font-size: 1.75rem; font-weight: 700; line-height: 1.3; margin-bottom: 0.6rem; text-shadow: 0 2px 8px rgba(0,0,0,0.2); }
+.header .subtitle { font-size: 0.85rem; opacity: 0.82; max-width: 520px; margin: 0 auto 1.4rem; line-height: 1.65; font-style: italic; }
+.header-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 1.6rem; }
+.header-tag { background: rgba(255,255,255,0.11); border: 1px solid rgba(255,255,255,0.22); border-radius: 6px; padding: 4px 12px; font-size: 0.73rem; }
+
+/* Researcher cards */
+.researchers-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+.researcher-card {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: rgba(255,255,255,0.11); border: 1px solid rgba(255,255,255,0.22);
+  border-radius: 12px; padding: 10px 16px; font-size: 0.8rem;
+}
+.researcher-avatar { width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.22); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; }
+.researcher-card .info { text-align: left; }
+.researcher-card .name { font-weight: 600; font-size: 0.86rem; }
+.researcher-card .role { opacity: 0.72; font-size: 0.73rem; margin-top: 1px; }
+
+/* ===== BRIEF PANEL ===== */
+.brief-panel { max-width: 700px; margin: 0 auto; padding: 1.8rem 1rem 0.5rem; }
+.brief-card { background: white; border-radius: 18px; border: 1px solid var(--border); overflow: hidden; margin-bottom: 1rem; box-shadow: 0 4px 20px rgba(0,0,0,0.07); }
+.brief-header { background: linear-gradient(135deg, #062a1a, #1a6b4a); color: white; padding: 1.3rem 1.6rem; display: flex; align-items: center; gap: 14px; }
+.brief-header .icon { font-size: 2rem; }
+.brief-header h2 { font-size: 1.05rem; font-weight: 700; }
+.brief-header p { font-size: 0.76rem; opacity: 0.78; margin-top: 3px; }
+.brief-body { padding: 1.5rem 1.6rem; }
+.brief-section { margin-bottom: 1.3rem; }
+.brief-section:last-child { margin-bottom: 0; }
+.brief-section-title { font-size: 0.8rem; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 0.65rem; display: flex; align-items: center; gap: 6px; }
+.brief-section p { font-size: 0.85rem; color: var(--text); line-height: 1.75; }
+.brief-highlight { background: var(--primary-light); border-left: 4px solid var(--primary); border-radius: 0 10px 10px 0; padding: 0.9rem 1.1rem; font-size: 0.83rem; line-height: 1.65; color: var(--text); }
+.benefit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }
+@media(max-width:480px) { .benefit-grid { grid-template-columns: 1fr; } }
+.benefit-item { background: var(--primary-light); border-radius: 10px; padding: 10px 12px; display: flex; align-items: flex-start; gap: 9px; font-size: 0.79rem; color: var(--text); line-height: 1.55; }
+.benefit-item .bi { font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
+.contact-strip { background: #f0faf5; border: 1px solid #b8e0cc; border-radius: 12px; padding: 1rem 1.2rem; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.contact-item { display: flex; align-items: center; gap: 6px; font-size: 0.81rem; color: var(--primary); font-weight: 600; }
+.contact-item a { color: var(--primary); text-decoration: none; }
+.contact-item a:hover { text-decoration: underline; }
+.whatsapp-btn { display: inline-flex; align-items: center; gap: 6px; background: #25D366; color: white; border-radius: 8px; padding: 7px 14px; font-size: 0.81rem; font-weight: 600; text-decoration: none; transition: all 0.2s; }
+.whatsapp-btn:hover { background: #1da851; transform: translateY(-1px); }
+
+/* Lab card */
+.lab-card { background: linear-gradient(135deg, #f0faf5, #e8f5ee); border: 1.5px solid #b8e0cc; border-radius: 14px; padding: 1.2rem 1.4rem; margin-top: 1rem; }
+.lab-card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 0.9rem; }
+.lab-logo { width: 48px; height: 48px; border-radius: 10px; background: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; flex-shrink: 0; }
+.lab-card-header .lab-title { font-size: 0.9rem; font-weight: 700; color: var(--primary); }
+.lab-card-header .lab-sub { font-size: 0.76rem; color: var(--text-muted); margin-top: 2px; }
+.lab-links { display: flex; flex-wrap: wrap; gap: 8px; }
+.lab-link { display: inline-flex; align-items: center; gap: 5px; background: white; border: 1px solid var(--border); border-radius: 7px; padding: 5px 11px; font-size: 0.76rem; color: var(--primary); font-weight: 600; text-decoration: none; transition: all 0.2s; }
+.lab-link:hover { border-color: var(--primary); background: var(--primary-light); }
+.divider { height: 1px; background: var(--border); margin: 1rem 0; }
+
+.btn-start-survey {
+  width: 100%; padding: 15px;
+  background: linear-gradient(135deg, #0f4a30, var(--primary), var(--primary-mid));
+  color: white; border: none; border-radius: 14px;
+  font-family: 'Hind Siliguri', sans-serif;
+  font-size: 1rem; font-weight: 700; cursor: pointer;
+  transition: all 0.25s; box-shadow: 0 5px 18px rgba(26,107,74,0.35);
+  margin-top: 1rem; letter-spacing: 0.3px;
+}
+.btn-start-survey:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(26,107,74,0.42); }
+
+/* ===== PROGRESS ===== */
+.progress-container { background: white; padding: 1.2rem 1.5rem; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,0.07); }
+.progress-steps { display: flex; align-items: center; justify-content: center; gap: 0; max-width: 600px; margin: 0 auto; }
+.step-item { display: flex; flex-direction: column; align-items: center; flex: 1; position: relative; }
+.step-item:not(:last-child)::after { content: ''; position: absolute; top: 16px; left: 55%; width: 90%; height: 2px; background: var(--border); z-index: 0; }
+.step-item.done:not(:last-child)::after, .step-item.active:not(:last-child)::after { background: var(--step-done); }
+.step-circle { width: 32px; height: 32px; border-radius: 50%; background: var(--border); color: var(--text-muted); display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 600; z-index: 1; transition: all 0.3s; position: relative; }
+.step-item.active .step-circle { background: var(--primary); color: white; box-shadow: 0 0 0 4px var(--primary-light); }
+.step-item.done .step-circle { background: var(--step-done); color: white; }
+.step-label { font-size: 0.63rem; color: var(--text-muted); margin-top: 5px; text-align: center; font-weight: 500; }
+.step-item.active .step-label { color: var(--primary); font-weight: 600; }
+.step-item.done .step-label { color: var(--step-done); }
+.progress-bar-wrap { max-width: 420px; margin: 10px auto 0; background: #e8eef3; border-radius: 10px; height: 5px; }
+.progress-bar-fill { height: 5px; border-radius: 10px; background: linear-gradient(90deg, #0f4a30, var(--primary-mid)); transition: width 0.4s ease; }
+.progress-text { text-align: center; font-size: 0.71rem; color: var(--text-muted); margin-top: 5px; }
+
+/* ===== FORM ===== */
+.form-wrap { max-width: 700px; margin: 0 auto; padding: 1.5rem 1rem 4rem; }
+.section-panel { display: none; animation: fadeIn 0.3s ease; }
+.section-panel.active { display: block; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+.section-header { display: flex; align-items: center; gap: 14px; margin-bottom: 1.2rem; padding: 1.1rem 1.4rem; background: white; border-radius: 14px; border: 1px solid var(--border); border-left: 5px solid var(--primary); box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+.section-icon { width: 44px; height: 44px; border-radius: 10px; background: var(--primary-light); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; flex-shrink: 0; }
+.section-header h2 { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 2px; }
+.section-header p { font-size: 0.76rem; color: var(--text-muted); }
+
+.form-card { background: white; border-radius: 14px; border: 1px solid var(--border); padding: 1.4rem 1.5rem; margin-bottom: 1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.03); }
+.form-group { margin-bottom: 1.25rem; }
+.form-group:last-child { margin-bottom: 0; }
+
+label.field-label { display: block; font-size: 0.84rem; font-weight: 600; color: var(--text); margin-bottom: 7px; line-height: 1.45; }
+label.field-label .req { color: var(--danger); margin-left: 3px; }
+label.field-label .en { font-size: 0.71rem; color: var(--text-muted); font-weight: 400; display: block; margin-top: 2px; }
+
+input[type="text"], input[type="number"], input[type="tel"], input[type="email"], select, textarea {
+  width: 100%; padding: 10px 14px;
+  border: 1.5px solid var(--border); border-radius: 9px;
+  font-family: 'Hind Siliguri', sans-serif; font-size: 0.88rem;
+  color: var(--text); background: white;
+  transition: border-color 0.2s, box-shadow 0.2s; outline: none;
+}
+input[type="number"] { -moz-appearance: textfield; }
+input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button { opacity: 1; }
+input:focus, select:focus, textarea:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(26,107,74,0.1); }
+textarea { resize: vertical; min-height: 80px; }
+input.error, select.error, textarea.error { border-color: var(--danger); }
+.err-msg { color: var(--danger); font-size: 0.75rem; margin-top: 4px; display: none; }
+.err-msg.show { display: block; }
+
+.radio-group, .check-group { display: flex; flex-direction: column; gap: 8px; }
+.radio-group.inline, .check-group.inline { flex-direction: row; flex-wrap: wrap; gap: 8px; }
+.radio-option, .check-option { display: flex; align-items: center; gap: 10px; padding: 9px 14px; border: 1.5px solid var(--border); border-radius: 9px; cursor: pointer; transition: all 0.2s; font-size: 0.85rem; background: white; user-select: none; }
+.radio-option:hover, .check-option:hover { border-color: var(--primary); background: var(--primary-light); }
+.radio-group.inline .radio-option, .check-group.inline .check-option { flex: 0 0 auto; }
+.radio-option input[type="radio"], .check-option input[type="checkbox"] { width: 16px; height: 16px; accent-color: var(--primary); cursor: pointer; flex-shrink: 0; margin: 0; padding: 0; border: none; box-shadow: none; }
+.radio-option.selected, .check-option.selected { border-color: var(--primary); background: var(--primary-light); }
+
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+@media (max-width: 480px) { .grid-2 { grid-template-columns: 1fr; } }
+
+.food-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+.food-table th { background: var(--primary-light); color: var(--primary); font-weight: 700; padding: 8px 10px; text-align: left; font-size: 0.76rem; }
+.food-table td { padding: 7px 10px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+.food-table tr:last-child td { border-bottom: none; }
+.food-table select { padding: 5px 8px; font-size: 0.8rem; }
+
+.nav-row { display: flex; justify-content: space-between; align-items: center; margin-top: 1.5rem; gap: 12px; }
+.btn-back { padding: 11px 24px; border-radius: 10px; border: 1.5px solid var(--border); background: white; color: var(--text-muted); font-family: 'Hind Siliguri', sans-serif; font-size: 0.87rem; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+.btn-back:hover { border-color: var(--primary); color: var(--primary); }
+.btn-next { padding: 11px 28px; border-radius: 10px; border: none; background: linear-gradient(135deg, var(--primary), var(--primary-mid)); color: white; font-family: 'Hind Siliguri', sans-serif; font-size: 0.88rem; font-weight: 600; cursor: pointer; transition: all 0.2s; box-shadow: 0 3px 10px rgba(26,107,74,0.25); display: flex; align-items: center; gap: 8px; }
+.btn-next:hover { transform: translateY(-1px); box-shadow: 0 5px 14px rgba(26,107,74,0.32); }
+
+.btn-submit { padding: 15px 32px; border-radius: 12px; border: none; background: linear-gradient(135deg, #e07b00, var(--accent), #f5b800); color: white; font-family: 'Hind Siliguri', sans-serif; font-size: 1rem; font-weight: 700; cursor: pointer; transition: all 0.25s; box-shadow: 0 4px 14px rgba(240,165,0,0.35); width: 100%; letter-spacing: 0.3px; }
+.btn-submit:hover { transform: translateY(-2px); box-shadow: 0 7px 20px rgba(240,165,0,0.45); }
+.btn-submit:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
+
+.consent-box { background: var(--accent-light); border: 1.5px solid #f5d07a; border-radius: 12px; padding: 1.2rem 1.4rem; margin-bottom: 1.2rem; font-size: 0.84rem; line-height: 1.75; color: var(--text); }
+.consent-box strong { color: var(--primary); }
+.notice { background: #e8f4fd; border: 1px solid #b3d4eb; border-radius: 10px; padding: 10px 14px; font-size: 0.79rem; color: #1a5f8a; margin-bottom: 1rem; display: flex; align-items: flex-start; gap: 8px; }
+
+/* Drug info box */
+.drug-info-box { background: linear-gradient(135deg, #fff8e6, #fef3d0); border: 1.5px solid #f5c842; border-radius: 12px; padding: 1rem 1.2rem; margin-bottom: 1rem; }
+.drug-info-box h4 { font-size: 0.82rem; font-weight: 700; color: #8a5e00; margin-bottom: 0.5rem; }
+.drug-info-box p { font-size: 0.78rem; color: #6b4a00; line-height: 1.65; }
+.drug-names { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.drug-tag { background: white; border: 1px solid #f5c842; border-radius: 6px; padding: 3px 10px; font-size: 0.74rem; color: #8a5e00; font-weight: 600; }
+
+/* IP duplicate warning */
+.ip-warning { display: none; background: #fff0f0; border: 1.5px solid #fca5a5; border-radius: 12px; padding: 1rem 1.2rem; margin-bottom: 1rem; font-size: 0.83rem; color: #c0392b; }
+.ip-warning.show { display: block; }
+
+/* ===== SUCCESS SCREEN ===== */
+.success-screen { display: none; }
+.success-card { background: white; border-radius: 20px; border: 1px solid var(--border); overflow: hidden; box-shadow: 0 8px 30px rgba(0,0,0,0.08); }
+.success-top { background: linear-gradient(135deg, #062a1a, #1a6b4a, #2d9e6b); padding: 2.5rem 2rem; text-align: center; color: white; }
+.success-icon-wrap { width: 80px; height: 80px; border-radius: 50%; background: rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; margin: 0 auto 1.2rem; border: 3px solid rgba(255,255,255,0.3); }
+.success-top h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem; }
+.success-top p { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+.success-body { padding: 1.8rem 1.6rem; }
+.success-quote { background: var(--primary-light); border-left: 4px solid var(--primary); border-radius: 0 12px 12px 0; padding: 1rem 1.2rem; font-size: 0.88rem; color: var(--text); line-height: 1.7; margin-bottom: 1.5rem; font-style: italic; }
+.success-team { display: flex; flex-direction: column; gap: 10px; margin-bottom: 1.5rem; }
+.success-person { display: flex; align-items: center; gap: 12px; background: #f8fafb; border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px; }
+.success-avatar { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1rem; flex-shrink: 0; }
+.success-person .pinfo .pname { font-size: 0.9rem; font-weight: 700; color: var(--text); }
+.success-person .pinfo .prole { font-size: 0.76rem; color: var(--text-muted); margin-top: 2px; }
+.success-person .pinfo .pemail { font-size: 0.76rem; color: var(--primary); margin-top: 1px; }
+.success-lab { background: var(--primary-light); border-radius: 12px; padding: 1.2rem 1.3rem; margin-bottom: 1.5rem; }
+.success-lab h4 { font-size: 0.85rem; font-weight: 700; color: var(--primary); margin-bottom: 0.6rem; }
+.success-lab p { font-size: 0.8rem; color: var(--text); line-height: 1.65; }
+.success-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.success-actions { display: flex; flex-direction: column; gap: 10px; }
+.btn-whatsapp-success { display: flex; align-items: center; justify-content: center; gap: 8px; background: #25D366; color: white; border: none; border-radius: 10px; padding: 12px; font-family: 'Hind Siliguri', sans-serif; font-size: 0.88rem; font-weight: 700; cursor: pointer; text-decoration: none; transition: all 0.2s; }
+.btn-whatsapp-success:hover { background: #1da851; }
+.btn-another { background: white; border: 1.5px solid var(--border); color: var(--text-muted); border-radius: 10px; padding: 11px; font-family: 'Hind Siliguri', sans-serif; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+.btn-another:hover { border-color: var(--primary); color: var(--primary); }
+
+/* ===== LOADING ===== */
+.loading-overlay { display: none; position: fixed; inset: 0; z-index: 999; background: rgba(6,42,26,0.88); align-items: center; justify-content: center; flex-direction: column; gap: 16px; }
+.loading-overlay.visible { display: flex; }
+.spinner { width: 52px; height: 52px; border: 4px solid rgba(255,255,255,0.25); border-top-color: #2d9e6b; border-radius: 50%; animation: spin 0.85s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.loading-overlay p { color: white; font-size: 0.9rem; font-family: 'Hind Siliguri', sans-serif; }
+
+@media (max-width: 520px) {
+  .header h1 { font-size: 1.25rem; }
+  .form-card { padding: 1.1rem 1rem; }
+  .step-label { display: none; }
+  .researchers-row { flex-direction: column; align-items: center; }
+}
+</style>
+</head>
+<body>
+
+<div class="loading-overlay" id="loadingOverlay">
+  <div class="spinner"></div>
+  <p>⏳ তথ্য সুরক্ষিতভাবে সংরক্ষণ হচ্ছে...</p>
+</div>
+
+<!-- ===== HEADER ===== -->
+<div class="header">
+  <div class="header-mountain"></div>
+  <div class="header-inner">
+    <div class="uni-badge">🎓 চট্টগ্রাম বিশ্ববিদ্যালয় — স্বাস্থ্য বিজ্ঞান গবেষণা</div>
+    <h1>পার্বত্য চট্টগ্রামের আদিবাসী জনগোষ্ঠীতে<br>ডায়াবেটিসের ব্যাপকতা ও ঝুঁকি নির্ণয়</h1>
+    <p class="subtitle">Prevalence and Risk Factors of Diabetes Among Indigenous Communities of Chittagong Hill Tracts (CHT), Bangladesh</p>
+    <div class="header-tags">
+      <span class="header-tag">🏔️ পার্বত্য চট্টগ্রাম</span>
+      <span class="header-tag">🩺 ডায়াবেটিস গবেষণা</span>
+      <span class="header-tag">👨‍👩‍👧 আদিবাসী জনস্বাস্থ্য</span>
+      <span class="header-tag">📊 CU BMB Research 2026</span>
+    </div>
+    <div class="researchers-row">
+      <div class="researcher-card">
+        <div class="researcher-avatar" style="background:rgba(240,165,0,0.3)">PC</div>
+        <div class="info">
+          <div class="name">Pandob Chakma</div>
+          <div class="role"> MS Student | pandob.cu@gmail.com</div>
+        </div>
+      </div>
+      <div class="researcher-card">
+        <div class="researcher-avatar" style="background:rgba(255,255,255,0.2)">AS</div>
+        <div class="info">
+          <div class="name">Prof. Dr. Atiar Rahman</div>
+          <div class="role">Supervisor | atiar@cu.ac.bd</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== BRIEF PANEL ===== -->
+<div class="brief-panel" id="briefPanel">
+  <div class="brief-card">
+    <div class="brief-header">
+      <div class="icon">🔬</div>
+      <div>
+        <h2>গবেষণার বিস্তারিত পরিচিতি</h2>
+        <p>Research Overview — অংশগ্রহণের আগে অনুগ্রহ করে পড়ুন</p>
+      </div>
+    </div>
+    <div class="brief-body">
+
+      <div class="brief-section">
+        <div class="brief-section-title">📌 কেন এই গবেষণা?</div>
+        <p>পার্বত্য চট্টগ্রামের চাকমা, মারমা, ত্রিপুরা-সহ বিভিন্ন আদিবাসী জনগোষ্ঠীতে ডায়াবেটিস একটি ক্রমবর্ধমান স্বাস্থ্য সমস্যা হয়ে উঠছে। তবুও এই জনগোষ্ঠীর উপর বাংলাদেশে এখন পর্যন্ত কোনো বৈজ্ঞানিক গবেষণা পরিচালিত হয়নি। আধুনিক খাদ্যাভ্যাসের পরিবর্তন, শারীরিক পরিশ্রম হ্রাস এবং জেনেটিক কারণে এই ঝুঁকি দিন দিন বাড়ছে।</p>
+      </div>
+
+      <div class="brief-section">
+        <div class="brief-highlight">
+          <strong>🎯 গবেষণার লক্ষ্য:</strong> পাহাড়ি আদিবাসী পরিবারগুলোতে ডায়াবেটিসের প্রকোপ ও ঝুঁকির কারণ চিহ্নিত করা — যাতে ভবিষ্যতে স্বাস্থ্যসেবা পরিকল্পনা এই জনগোষ্ঠীর জন্য বিশেষভাবে তৈরি করা যায়।
+        </div>
+      </div>
+
+      <div class="brief-section">
+        <div class="brief-section-title">🌿 পাহাড়ি জনগোষ্ঠীর কী উপকার হবে?</div>
+        <div class="benefit-grid">
+          <div class="benefit-item"><span class="bi">🏥</span><span>CHT-এ বিশেষায়িত ডায়াবেটিস স্বাস্থ্যসেবা নিশ্চিত করতে সরকারকে বৈজ্ঞানিক তথ্য দেওয়া হবে</span></div>
+          <div class="benefit-item"><span class="bi">📋</span><span>আদিবাসীদের জন্য নির্দিষ্ট স্বাস্থ্য নির্দেশিকা তৈরিতে সহায়তা করবে</span></div>
+          <div class="benefit-item"><span class="bi">💊</span><span>ডায়াবেটিস প্রতিরোধে সচেতনতা কার্যক্রম পরিচালনায় কাজে আসবে</span></div>
+          <div class="benefit-item"><span class="bi">🌐</span><span>গবেষণার ফলাফল আন্তর্জাতিক জার্নালে প্রকাশ পেয়ে CHT-এর স্বাস্থ্য পরিস্থিতি বিশ্বে তুলে ধরা হবে</span></div>
+        </div>
+      </div>
+
+      <div class="brief-section">
+        <div class="brief-section-title">👨‍👧 তথ্য সংগ্রহের পদ্ধতি</div>
+        <p>যেহেতু পাহাড়ি এলাকায় সরাসরি যাওয়া কঠিন, তাই পরিবারের শিক্ষিত সন্তান বা তরুণ সদস্যদের মাধ্যমে বাড়িতে বসে এই জরিপ পূরণ করা হচ্ছে। জরিপে অংশগ্রহণ সম্পূর্ণ স্বেচ্ছামূলক।</p>
+      </div>
+
+      <div class="brief-section">
+        <div class="brief-section-title">🔒 গোপনীয়তার নিশ্চয়তা</div>
+        <p>আপনার সকল তথ্য <strong>সম্পূর্ণ গোপনীয়</strong> থাকবে। কোনো ব্যক্তিগত পরিচয় প্রকাশ করা হবে না — শুধুমাত্র সামগ্রিক গবেষণার ফলাফল প্রকাশিত হবে।</p>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- LAB DETAILS -->
+      <div class="brief-section">
+        <div class="brief-section-title">🏛️ গবেষণা দল ও প্রতিষ্ঠান</div>
+        <div class="lab-card">
+          <div class="lab-card-header">
+
+
+            <div class="lab-logo" style="text-align: center; margin-bottom: 15px;">
+                 <img src="amnpr.jpg" alt="AM-NPR Lab Logo" style="height: 65px; width: auto; object-fit: contain;">
+             </div>
+          
+            <div>
+              <div class="lab-title">Laboratory of Alternative Medicine and Natural Products Research(AMNPR)</div>
+              <div class="lab-sub"> Centre for Reseasrch and Excelence, Department of Biochemistry & Molecular Biology<br>University of Chittagong, Chattogram-4331, Bangladesh</div>
+            </div>
+          </div>
+          <div class="lab-links">
+            <a class="lab-link" href="https://am-npr.cu.ac.bd" target="_blank">🌐 AMNPR </a>
+            <a class="lab-link" href="mailto:atiar@cu.ac.bd">✉️ atiar@cu.ac.bd</a>
+            
+            <a class="lab-link" href="https://wa.me/8801711709084" target="_blank">💬 WhatsApp</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="brief-section">
+        <div class="brief-section-title">📞 সরাসরি যোগাযোগ</div>
+        <div class="contact-strip">
+          <div class="contact-item">✉️ <a href="mailto:pandob.cu@gmail.com">pandob.cu@gmail.com</a></div>
+          <div class="contact-item">📱 <a href="tel:+8801521355133">01521-355133</a></div>
+            <a class="lab-link" href="https://www.linkedin.com/in/pandob-chakma" target="_blank">💼 LinkedIn</a>
+            <a class="lab-link" href="https://www.researchgate.net/profile/Pandob-Chakma" target="_blank">📖 ResearchGate</a>
+          <a class="whatsapp-btn" href="https://wa.me/8801521355133?text=আমি%20CHT%20ডায়াবেটিস%20জরিপ%20বিষয়ে%20যোগাযোগ%20করছি" target="_blank">💬 WhatsApp-এ বার্তা করুন</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <button class="btn-start-survey" onclick="startSurvey()">
+    ✅ বুঝেছি — এখন জরিপ শুরু করুন →
+  </button>
+</div>
+
+<!-- ===== PROGRESS ===== -->
+<div class="progress-container" id="progressBar" style="display:none">
+  <div class="progress-steps">
+    <div class="step-item active" id="step-ind-0"><div class="step-circle">১</div><div class="step-label">সম্মতি ও পরিচয়</div></div>
+    <div class="step-item" id="step-ind-1"><div class="step-circle">২</div><div class="step-label">খাদ্যাভ্যাস</div></div>
+    <div class="step-item" id="step-ind-2"><div class="step-circle">৩</div><div class="step-label">জীবনযাপন</div></div>
+    <div class="step-item" id="step-ind-3"><div class="step-circle">৪</div><div class="step-label">ওষুধ ও স্বাস্থ্য</div></div>
+    <div class="step-item" id="step-ind-4"><div class="step-circle">৫</div><div class="step-label">ডায়াবেটিস</div></div>
+  </div>
+  <div class="progress-bar-wrap"><div class="progress-bar-fill" id="progress-fill" style="width:10%"></div></div>
+  <div class="progress-text" id="progress-text">ধাপ ১ / ৫</div>
+</div>
+
+<!-- ===== FORM ===== -->
+<div class="form-wrap" id="formWrap" style="display:none">
+  <div class="ip-warning" id="ipWarning">
+    ⚠️ এই ডিভাইস থেকে আগে একটি জরিপ জমা দেওয়া হয়েছে। একই পরিবারের একাধিক সদস্যের জন্য পৃথক ডিভাইস ব্যবহার করুন।
+  </div>
+  <form id="mainForm">
+
+    <!-- STEP 0: CONSENT + PERSONAL -->
+    <div class="section-panel active" id="panel-0">
+      <div class="section-header">
+        <div class="section-icon">📋</div>
+        <div><h2>সম্মতি ও ব্যক্তিগত তথ্য</h2><p>Consent & Personal Information</p></div>
+      </div>
+      <div class="form-card">
+        <div class="consent-box">
+          আমি স্বেচ্ছায় এই গবেষণা জরিপে অংশগ্রহণ করছি এবং বুঝতে পারছি যে আমার তথ্য শুধুমাত্র বৈজ্ঞানিক গবেষণার উদ্দেশ্যে ব্যবহৃত হবে এবং সম্পূর্ণ গোপনীয় থাকবে।<br>
+          <strong>I freely consent to participate in this research survey.</strong>
+        </div>
+        <div class="form-group">
+          <label class="field-label">আপনি কি এই জরিপে অংশগ্রহণ করতে সম্মত? <span class="req">*</span><span class="en">Do you consent to participate?</span></label>
+          <div class="radio-group inline" id="grp-consent">
+            <label class="radio-option"><input type="radio" name="consent" value="হ্যাঁ, সম্মত"> হ্যাঁ, সম্মত</label>
+            <label class="radio-option"><input type="radio" name="consent" value="না"> না, সম্মত নই</label>
+          </div>
+          <div class="err-msg" id="err-consent">অনুগ্রহ করে একটি বিকল্প বেছে নিন।</div>
+        </div>
+        <div class="form-group">
+          <label class="field-label">মোবাইল নম্বর <span class="req">*</span><span class="en">Mobile Number (digits only)</span></label>
+          <input type="tel" name="mobile" id="fld-mobile" placeholder="01XXXXXXXXX" pattern="[0-9]{11}" inputmode="numeric">
+          <div class="err-msg" id="err-mobile">সঠিক ১১-সংখ্যার মোবাইল নম্বর দিন।</div>
+        </div>
+      </div>
+
+      <div class="section-header" style="margin-top:1rem">
+        <div class="section-icon">👤</div>
+        <div><h2>প্রথম পর্ব: ব্যক্তিগত তথ্য</h2><p>Section 1: Personal Information</p></div>
+      </div>
+      <div class="form-card">
+        <div class="grid-2">
+          <div class="form-group">
+            <label class="field-label">বয়স (বছর) <span class="req">*</span><span class="en">Age in years — numbers only</span></label>
+            <input type="number" name="age" id="fld-age" min="10" max="100" placeholder="যেমন: 35" inputmode="numeric">
+            <div class="err-msg" id="err-age">১০–১০০ এর মধ্যে বয়স দিন।</div>
+          </div>
+          <div class="form-group">
+            <label class="field-label">উচ্চতা (ফুট) <span class="en">Height in feet — e.g. 5.5</span></label>
+            <input type="number" name="height" id="fld-height" min="3" max="8" step="0.1" placeholder="যেমন: 5.5" inputmode="decimal">
+          </div>
+        </div>
+        <div class="grid-2">
+          <div class="form-group">
+            <label class="field-label">ওজন (কেজি) <span class="en">Weight in kg — numbers only</span></label>
+            <input type="number" name="weight" id="fld-weight" min="20" max="200" placeholder="যেমন: 60" inputmode="numeric">
+          </div>
+          <div class="form-group">
+            <label class="field-label">লিঙ্গ <span class="req">*</span><span class="en">Gender</span></label>
+            <select name="gender" id="fld-gender">
+              <option value="">-- বেছে নিন --</option>
+              <option>পুরুষ</option><option>মহিলা</option><option>অন্যান্য</option>
+            </select>
+            <div class="err-msg" id="err-gender">লিঙ্গ বেছে নিন।</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="field-label">শিক্ষাগত যোগ্যতা <span class="req">*</span><span class="en">Education Level</span></label>
+          <select name="education" id="fld-education">
+            <option value="">-- বেছে নিন --</option>
+            <option>প্রাথমিক (Class 1–5)</option><option>মাধ্যমিক (Class 6–10)</option>
+            <option>উচ্চ মাধ্যমিক (HSC)</option><option>স্নাতক (Bachelor's)</option>
+            <option>স্নাতকোত্তর (Master's)</option><option>পিএইচডি বা উচ্চতর</option><option>শিক্ষা নেই</option>
+          </select>
+          <div class="err-msg" id="err-education">শিক্ষাগত যোগ্যতা বেছে নিন।</div>
+        </div>
+        <div class="form-group">
+          <label class="field-label">আপনি কোথায় বাস করেন? <span class="req">*</span><span class="en">Where do you live?</span></label>
+          <div class="radio-group inline">
+            <label class="radio-option"><input type="radio" name="residence" value="শহর"> শহর</label>
+            <label class="radio-option"><input type="radio" name="residence" value="গ্রাম"> গ্রাম</label>
+            <label class="radio-option"><input type="radio" name="residence" value="আধা-শহর"> আধা-শহর</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="field-label">নৃগোষ্ঠী / জাতিসত্তা <span class="req">*</span><span class="en">Ethnic / Indigenous Identity</span></label>
+          <select name="ethnicity" id="fld-ethnicity">
+            <option value="">-- বেছে নিন --</option>
+            <option>চাকমা</option><option>মারমা</option><option>ত্রিপুরা</option>
+            <option>তঞ্চঙ্গ্যা</option><option>বম</option><option>খুমি</option>
+            <option>খিয়াং</option><option>মুরং (ম্রো)</option><option>পাংখুয়া</option>
+            <option>লুসাই (মিজো)</option><option>বাঙালি</option><option>অন্যান্য</option>
+          </select>
+          <div class="err-msg" id="err-ethnicity">নৃগোষ্ঠী বেছে নিন।</div>
+        </div>
+        <div class="form-group">
+          <label class="field-label">জেলা <span class="req">*</span><span class="en">District</span></label>
+          <select name="district" id="fld-district">
+            <option value="">-- বেছে নিন --</option>
+            <option>রাঙামাটি</option><option>বান্দরবান</option><option>খাগড়াছড়ি</option>
+            <option>চট্টগ্রাম</option><option>অন্যান্য</option>
+          </select>
+          <div class="err-msg" id="err-district">জেলা বেছে নিন।</div>
+        </div>
+        <div class="form-group">
+          <label class="field-label">বৈবাহিক অবস্থা <span class="en">Marital Status</span></label>
+          <div class="radio-group inline">
+            <label class="radio-option"><input type="radio" name="marital" value="বিবাহিত"> বিবাহিত</label>
+            <label class="radio-option"><input type="radio" name="marital" value="অবিবাহিত"> অবিবাহিত</label>
+            <label class="radio-option"><input type="radio" name="marital" value="বিধবা/বিপত্নীক"> বিধবা/বিপত্নীক</label>
+            <label class="radio-option"><input type="radio" name="marital" value="তালাকপ্রাপ্ত"> তালাকপ্রাপ্ত</label>
+          </div>
+        </div>
+      </div>
+      <div class="form-card">
+        <div class="grid-2">
+          <div class="form-group">
+            <label class="field-label">সন্তান সংখ্যা <span class="en">No. of Children (number)</span></label>
+            <input type="number" name="children" min="0" max="20" placeholder="0" inputmode="numeric">
+          </div>
+          <div class="form-group">
+            <label class="field-label">পরিবারের মোট সদস্য <span class="en">Total Family Members (number)</span></label>
+            <input type="number" name="family_members" min="1" max="30" placeholder="সদস্য সংখ্যা" inputmode="numeric">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="field-label">পরিবারের মাসিক আয় (টাকা) <span class="en">Monthly Family Income (BDT)</span></label>
+          <select name="income">
+            <option value="">-- বেছে নিন --</option>
+            <option>১০,০০০ এর কম</option><option>১০,০০০ – ২০,০০০</option>
+            <option>২০,০০০ – ৩০,০০০</option><option>৩০,০০০ – ৫০,০০০</option>
+            <option>৫০,০০০ – ১,০০,০০০</option><option>১,০০,০০০ এর বেশি</option>
+          </select>
+        </div>
+        <div class="grid-2">
+          <div class="form-group">
+            <label class="field-label">পিতার শিক্ষা <span class="en">Father's Education</span></label>
+            <select name="father_edu">
+              <option value="">-- বেছে নিন --</option>
+              <option>শিক্ষা নেই</option><option>প্রাথমিক</option><option>মাধ্যমিক</option>
+              <option>উচ্চ মাধ্যমিক</option><option>স্নাতক বা উচ্চতর</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="field-label">মাতার শিক্ষা <span class="en">Mother's Education</span></label>
+            <select name="mother_edu">
+              <option value="">-- বেছে নিন --</option>
+              <option>শিক্ষা নেই</option><option>প্রাথমিক</option><option>মাধ্যমিক</option>
+              <option>উচ্চ মাধ্যমিক</option><option>স্নাতক বা উচ্চতর</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="nav-row"><div></div>
+        <button type="button" class="btn-next" onclick="goNext(0)">পরবর্তী ধাপ →</button>
+      </div>
+    </div>
+
+    <!-- STEP 1: DIET -->
+    <div class="section-panel" id="panel-1">
+      <div class="section-header">
+        <div class="section-icon">🍽️</div>
+        <div><h2>দ্বিতীয় পর্ব: খাদ্যাভ্যাস</h2><p>Section 2: Dietary Habits</p></div>
+      </div>
+      <div class="form-card">
+        <div class="form-group">
+          <label class="field-label">আপনার প্রধান খাবার কী কী? <span class="en">Main food items (describe)</span></label>
+          <textarea name="main_food" placeholder="যেমন: ভাত, রুটি, আলু, বাঁশ কোড়ল..."></textarea>
+        </div>
+        <div class="form-group">
+          <label class="field-label">প্রতিদিন কতবার খাবার গ্রহণ করেন? <span class="en">Meals per day?</span></label>
+          <div class="radio-group inline">
+            <label class="radio-option"><input type="radio" name="meals_per_day" value="২ বার"> ২ বার</label>
+            <label class="radio-option"><input type="radio" name="meals_per_day" value="৩ বার"> ৩ বার</label>
+            <label class="radio-option"><input type="radio" name="meals_per_day" value="৪+ বার"> ৪+ বার</label>
+            <label class="radio-option"><input type="radio" name="meals_per_day" value="অনিয়মিত"> অনিয়মিত</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="field-label">কোন ধরনের খাবার বেশি পছন্দ? <span class="en">Preferred food type?</span></label>
+          <div class="radio-group inline">
+            <label class="radio-option"><input type="radio" name="food_pref" value="মিষ্টি"> মিষ্টি</label>
+            <label class="radio-option"><input type="radio" name="food_pref" value="ঝাল"> ঝাল</label>
+            <label class="radio-option"><input type="radio" name="food_pref" value="ভাজা-পোড়া"> ভাজা-পোড়া</label>
+            <label class="radio-option"><input type="radio" name="food_pref" value="নির্দিষ্ট নেই"> নির্দিষ্ট নেই</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="field-label" style="margin-bottom:10px">খাবারের ধরন ও পরিমাণ: <span class="en">Food frequency table</span></label>
+          <div class="notice">📌 প্রতিটি খাবারের জন্য আনুমানিক খাওয়ার হার বেছে নিন</div>
+          <table class="food-table">
+            <thead><tr><th style="width:36%">খাবার</th><th>খাওয়ার হার / Frequency</th></tr></thead>
+            <tbody>
+              <tr><td>🍊 ফল / Fruits</td><td><select name="food_fruit"><option value="">বেছে নিন</option><option>প্রতিদিন</option><option>সপ্তাহে ৩-৫ দিন</option><option>সপ্তাহে ১-২ দিন</option><option>মাসে মাসে</option><option>খাই না</option></select></td></tr>
+              <tr><td>🥦 শাক-সবজি / Vegetables</td><td><select name="food_veg"><option value="">বেছে নিন</option><option>প্রতিদিন</option><option>সপ্তাহে ৩-৫ দিন</option><option>সপ্তাহে ১-২ দিন</option><option>মাসে মাসে</option><option>খাই না</option></select></td></tr>
+              <tr><td>🍬 মিষ্টি / Sweets</td><td><select name="food_sweet"><option value="">বেছে নিন</option><option>প্রতিদিন</option><option>সপ্তাহে ৩-৫ দিন</option><option>সপ্তাহে ১-২ দিন</option><option>মাসে মাসে</option><option>খাই না</option></select></td></tr>
+              <tr><td>🥩 মাংস / Meat</td><td><select name="food_meat"><option value="">বেছে নিন</option><option>প্রতিদিন</option><option>সপ্তাহে ৩-৫ দিন</option><option>সপ্তাহে ১-২ দিন</option><option>মাসে মাসে</option><option>খাই না</option></select></td></tr>
+              <tr><td>🐟 মাছ / Fish</td><td><select name="food_fish"><option value="">বেছে নিন</option><option>প্রতিদিন</option><option>সপ্তাহে ৩-৫ দিন</option><option>সপ্তাহে ১-২ দিন</option><option>মাসে মাসে</option><option>খাই না</option></select></td></tr>
+              <tr><td>🍟 ফাস্ট ফুড</td><td><select name="food_fastfood"><option value="">বেছে নিন</option><option>প্রতিদিন</option><option>সপ্তাহে ৩-৫ দিন</option><option>সপ্তাহে ১-২ দিন</option><option>মাসে মাসে</option><option>খাই না</option></select></td></tr>
+              <tr><td>🥛 দুধ / দুগ্ধজাত</td><td><select name="food_dairy"><option value="">বেছে নিন</option><option>প্রতিদিন</option><option>সপ্তাহে ৩-৫ দিন</option><option>সপ্তাহে ১-২ দিন</option><option>মাসে মাসে</option><option>খাই না</option></select></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="form-group">
+          <label class="field-label">আপনার কি মনে হয় ফাস্টফুড স্বাস্থ্যের ক্ষতি করে? <span class="en">Is fast food harmful to health?</span></label>
+          <div class="radio-group inline">
+            <label class="radio-option"><input type="radio" name="fastfood_harmful" value="হ্যাঁ"> হ্যাঁ</label>
+            <label class="radio-option"><input type="radio" name="fastfood_harmful" value="না"> না</label>
+            <label class="radio-option"><input type="radio" name="fastfood_harmful" value="জানি না"> জানি না</label>
+          </div>
+        </div>
+      </div>
+      <div class="nav-row">
+        <button type="button" class="btn-back" onclick="goPrev(1)">← পূর্ববর্তী</button>
+        <button type="button" class="btn-next" onclick="goNext(1)">পরবর্তী ধাপ →</button>
+      </div>
+    </div>
+
+    <!-- STEP 2: LIFESTYLE -->
+    <div class="section-panel" id="panel-2">
+      <div class="section-header">
+        <div class="section-icon">🏃</div>
+        <div><h2>তৃতীয় পর্ব: জীবনযাপন</h2><p>Section 3: Lifestyle</p></div>
+      </div>
+      <div class="form-card">
+        <div class="grid-2">
+          <div class="form-group">
+            <label class="field-label">রাতে ঘুমাতে যান কখন? <span class="en">Approximate bedtime</span></label>
+            <input type="text" name="sleep_time" placeholder="যেমন: রাত ১০টা">
+          </div>
+          <div class="form-group">
+            <label class="field-label">ঘুম থেকে ওঠেন কখন? <span class="en">Approximate wake-up time</span></label>
+            <input type="text" name="wake_time" placeholder="যেমন: সকাল ৬টা">
+          </div>
+        </div>
+        <div class="grid-2">
+          <div class="form-group">
+            <label class="field-label">প্রতিদিন কত ঘণ্টা কাজ করেন? <span class="en">Work hours per day</span></label>
+            <select name="work_hours">
+              <option value="">বেছে নিন</option>
+              <option>৪ ঘণ্টার কম</option><option>৪–৬ ঘণ্টা</option>
+              <option>৬–৮ ঘণ্টা</option><option>৮–১০ ঘণ্টা</option><option>১০+ ঘণ্টা</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="field-label">কাজের ধরন <span class="en">Work type</span></label>
+            <div class="radio-group">
+              <label class="radio-option"><input type="radio" name="work_type" value="শারীরিক শ্রম"> শারীরিক শ্রম</label>
+              <label class="radio-option"><input type="radio" name="work_type" value="মানসিক / বসে"> মানসিক / বসে কাজ</label>
+              <label class="radio-option"><input type="radio" name="work_type" value="মিশ্র"> মিশ্র</label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="field-label">প্রতিদিন কত কি.মি. হাঁটেন? <span class="en">Approximate daily walk (km)</span></label>
+          <select name="daily_walk">
+            <option value="">বেছে নিন</option>
+            <option>হাঁটি না বললেই চলে</option><option>১ কি.মি. এর কম</option>
+            <option>১–৩ কি.মি.</option><option>৩–৫ কি.মি.</option><option>৫+ কি.মি.</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-card">
+        <div class="form-group">
+          <label class="field-label">আপনি কি নিয়মিত ব্যায়াম করেন? <span class="en">Do you exercise regularly?</span></label>
+          <div class="radio-group inline">
+            <label class="radio-option"><input type="radio" name="exercise" value="হ্যাঁ"> হ্যাঁ</label>
+            <label class="radio-option"><input type="radio" name="exercise" value="না"> না</label>
+            <label class="radio-option"><input type="radio" name="exercise" value="মাঝে মাঝে"> মাঝে মাঝে</label>
+          </div>
+        </div>
+        <div class="grid-2">
+          <div class="form-group">
+            <label class="field-label">সপ্তাহে কতদিন? <span class="en">Days per week</span></label>
+            <select name="exercise_days">
+              <option value="">বেছে নিন</option>
+              <option>করি না</option><option>১–২ দিন</option>
+              <option>৩–৪ দিন</option><option>৫–৬ দিন</option><option>প্রতিদিন</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="field-label">প্রতিবার কতটা সময়? <span class="en">Duration per session</span></label>
+            <select name="exercise_duration">
+              <option value="">বেছে নিন</option>
+              <option>১৫ মিনিটের কম</option><option>১৫–৩০ মিনিট</option>
+              <option>৩০–৬০ মিনিট</option><option>১ ঘণ্টার বেশি</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="field-label">আপনি কি ধূমপান করেন? <span class="en">Do you smoke?</span></label>
+          <div class="radio-group inline">
+            <label class="radio-option"><input type="radio" name="smoking" value="না"> না</label>
+            <label class="radio-option"><input type="radio" name="smoking" value="হ্যাঁ"> হ্যাঁ</label>
+            <label class="radio-option"><input type="radio" name="smoking" value="ছেড়ে দিয়েছি"> ছেড়ে দিয়েছি</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="field-label">ধূমপায়ী হলে — পরিমাণ? <span class="en">If smoker — how much?</span></label>
+          <div class="radio-group inline">
+            <label class="radio-option"><input type="radio" name="smoking_level" value="কম (১-৫/দিন)"> কম (১–৫/দিন)</label>
+            <label class="radio-option"><input type="radio" name="smoking_level" value="মডারেট (৬-১০/দিন)"> মডারেট</label>
+            <label class="radio-option"><input type="radio" name="smoking_level" value="চেইন স্মোকার"> চেইন স্মোকার</label>
+            <label class="radio-option"><input type="radio" name="smoking_level" value="প্রযোজ্য নয়"> প্রযোজ্য নয়</label>
+          </div>
+        </div>
+      </div>
+      <div class="nav-row">
+        <button type="button" class="btn-back" onclick="goPrev(2)">← পূর্ববর্তী</button>
+        <button type="button" class="btn-next" onclick="goNext(2)">পরবর্তী ধাপ →</button>
+      </div>
+    </div>
+
+    <!-- STEP 3: HEALTH -->
+    <div class="section-panel" id="panel-3">
+      <div class="section-header">
+        <div class="section-icon">💊</div>
+        <div><h2>চতুর্থ পর্ব: ওষুধ ও স্বাস্থ্য সুরক্ষা</h2><p>Section 4: Medication & Health Care</p></div>
+      </div>
+      <div class="form-card">
+        <div class="form-group">
+          <label class="field-label">আপনার কোনো শারীরিক জটিলতা আছে? <span class="en">Any physical health conditions?</span></label>
+          <textarea name="complications" placeholder="যেমন: উচ্চ রক্তচাপ, হৃদরোগ, কিডনি সমস্যা... (না থাকলে 'নেই' লিখুন)"></textarea>
+        </div>
+        <div class="form-group">
+          <label class="field-label">ক্ষতস্থান শুকোতে কত সময় লাগে? <span class="en">Wound healing time?</span></label>
+          <div class="radio-group inline">
+            <label class="radio-option"><input type="radio" name="wound_heal" value="সাধারণ (৩-৭ দিন)"> সাধারণ (৩–৭ দিন)</label>
+            <label class="radio-option"><input type="radio" name="wound_heal" value="একটু বেশি (২-৪ সপ্তাহ)"> একটু বেশি</label>
+            <label class="radio-option"><input type="radio" name="wound_heal" value="অনেক বেশি (১+ মাস)"> অনেক বেশি</label>
+            <label class="radio-option"><input type="radio" name="wound_heal" value="জানি না"> জানি না</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="field-label">অল্পতেই ক্লান্ত হয়ে পড়েন? <span class="en">Do you get tired easily?</span></label>
+          <div class="radio-group inline">
+            <label class="radio-option"><input type="radio" name="fatigue" value="হ্যাঁ"> হ্যাঁ</label>
+            <label class="radio-option"><input type="radio" name="fatigue" value="না"> না</label>
+            <label class="radio-option"><input type="radio" name="fatigue" value="মাঝে মাঝে"> মাঝে মাঝে</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="field-label">নিয়মিত ওষুধ খেতে হয়? <span class="en">On regular medications?</span></label>
+          <div class="radio-group inline">
+            <label class="radio-option"><input type="radio" name="regular_meds" value="হ্যাঁ"> হ্যাঁ</label>
+            <label class="radio-option"><input type="radio" name="regular_meds" value="না"> না</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="field-label">নিয়মিত ওষুধের নাম/প্রকার: <span class="en">List regular medications</span></label>
+          <div class="drug-info-box">
+            <h4>💡 সাধারণ ওষুধের উদাহরণ:</h4>
+            <p>আপনি যদি নিচের কোনো ওষুধ নিয়মিত খান তাহলে নাম লিখুন:</p>
+            <div class="drug-names">
+              <span class="drug-tag">মেটফর্মিন</span><span class="drug-tag">গ্লিবেনক্লামাইড</span>
+              <span class="drug-tag">অ্যামলোডিপিন</span><span class="drug-tag">অ্যাটেনোলল</span>
+              <span class="drug-tag">রামিপ্রিল</span><span class="drug-tag">অ্যাসপিরিন</span>
+              <span class="drug-tag">মেটোপ্রোলল</span><span class="drug-tag">রোসুভাস্টাটিন</span>
+            </div>
+          </div>
+          <textarea name="medication_list" placeholder="ওষুধের নাম লিখুন... (না থাকলে 'নেই' লিখুন)"></textarea>
+        </div>
+        <div class="form-group">
+          <label class="field-label">চিকিৎসা পদ্ধতি পছন্দ করেন? <span class="en">Preferred treatment type?</span></label>
+          <div class="radio-group inline">
+            <label class="radio-option"><input type="radio" name="treatment_pref" value="আধুনিক চিকিৎসা"> আধুনিক চিকিৎসা</label>
+            <label class="radio-option"><input type="radio" name="treatment_pref" value="হোমিওপ্যাথি"> হোমিওপ্যাথি</label>
+            <label class="radio-option"><input type="radio" name="treatment_pref" value="ভেষজ / কবিরাজি"> ভেষজ / কবিরাজি</label>
+            <label class="radio-option"><input type="radio" name="treatment_pref" value="মিশ্র"> মিশ্র</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="field-label">নিয়মিত স্বাস্থ্য পরীক্ষা করান? <span class="en">Regular health check-up?</span></label>
+          <div class="radio-group inline">
+            <label class="radio-option"><input type="radio" name="health_checkup" value="হ্যাঁ"> হ্যাঁ</label>
+            <label class="radio-option"><input type="radio" name="health_checkup" value="না"> না</label>
+            <label class="radio-option"><input type="radio" name="health_checkup" value="মাঝে মাঝে"> মাঝে মাঝে</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="field-label">রক্ত/মূত্র পরীক্ষা সম্পর্কে সচেতন? <span class="en">Aware of blood/urine tests for diabetes?</span></label>
+          <div class="radio-group inline">
+            <label class="radio-option"><input type="radio" name="test_aware" value="হ্যাঁ"> হ্যাঁ</label>
+            <label class="radio-option"><input type="radio" name="test_aware" value="না"> না</label>
+            <label class="radio-option"><input type="radio" name="test_aware" value="কিছুটা"> কিছুটা</label>
+          </div>
+        </div>
+      </div>
+      <div class="nav-row">
+        <button type="button" class="btn-back" onclick="goPrev(3)">← পূর্ববর্তী</button>
+        <button type="button" class="btn-next" onclick="goNext(3)">পরবর্তী ধাপ →</button>
+      </div>
+    </div>
+
+    <!-- STEP 4: DIABETES -->
+    <div class="section-panel" id="panel-4">
+      <div class="section-header">
+        <div class="section-icon">🩺</div>
+        <div><h2>শেষ পর্ব: ডায়াবেটিস তথ্য</h2><p>Section 5: Diabetes Information</p></div>
+      </div>
+      <div class="form-card">
+        <div class="form-group">
+          <label class="field-label">ডায়াবেটিস সম্পর্কে আপনি কী জানেন? <span class="en">What do you know about diabetes? (describe)</span></label>
+          <textarea name="diabetes_knowledge" placeholder="আপনার জানা যেকোনো তথ্য লিখুন..."></textarea>
+        </div>
+        <div class="form-group">
+          <label class="field-label">কখনো ডায়াবেটিস পরীক্ষা করিয়েছেন? <span class="en">Ever tested for diabetes?</span></label>
+          <div class="radio-group inline">
+            <label class="radio-option"><input type="radio" name="diabetes_tested" value="হ্যাঁ"> হ্যাঁ</label>
+            <label class="radio-option"><input type="radio" name="diabetes_tested" value="না"> না</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="field-label">আপনার কি ডায়াবেটিস ধরা পড়েছে? <span class="en">Diagnosed with diabetes?</span></label>
+          <div class="radio-group inline">
+            <label class="radio-option"><input type="radio" name="diabetes_diagnosed" value="হ্যাঁ"> হ্যাঁ</label>
+            <label class="radio-option"><input type="radio" name="diabetes_diagnosed" value="না"> না</label>
+            <label class="radio-option"><input type="radio" name="diabetes_diagnosed" value="প্রি-ডায়াবেটিক"> প্রি-ডায়াবেটিক</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="field-label">ডায়াবেটিস থাকলে — কোন ওষুধ নেন? <span class="en">If diabetic — type of medication?</span></label>
+          <div class="drug-info-box">
+            <h4>💊 ডায়াবেটিসের সাধারণ ওষুধ:</h4>
+            <div class="drug-names">
+              <span class="drug-tag">মেটফর্মিন (Metformin)</span>
+              <span class="drug-tag">গ্লিবেনক্লামাইড (Glibenclamide)</span>
+              <span class="drug-tag">সিটাগ্লিপটিন (Sitagliptin)</span>
+              <span class="drug-tag">এমপাগ্লিফ্লোজিন (Empagliflozin)</span>
+              <span class="drug-tag">ইনসুলিন গ্লারজিন</span>
+              <span class="drug-tag">ইনসুলিন অ্যাসপার্ট</span>
+              <span class="drug-tag">ইনসুলিন হিউম্যান মিক্সটার্ড</span>
+            </div>
+          </div>
+          <div class="radio-group inline" style="margin-top:10px">
+            <label class="radio-option"><input type="radio" name="diabetes_med" value="ট্যাবলেট"> ট্যাবলেট</label>
+            <label class="radio-option"><input type="radio" name="diabetes_med" value="ইনসুলিন"> ইনসুলিন</label>
+            <label class="radio-option"><input type="radio" name="diabetes_med" value="উভয়"> উভয়</label>
+            <label class="radio-option"><input type="radio" name="diabetes_med" value="কোনো ওষুধ নেই"> ওষুধ নেই</label>
+            <label class="radio-option"><input type="radio" name="diabetes_med" value="প্রযোজ্য নয়"> প্রযোজ্য নয়</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="field-label">ইনসুলিন গ্রহণের প্রয়োজন হয়? <span class="en">Need insulin?</span></label>
+          <div class="radio-group inline">
+            <label class="radio-option"><input type="radio" name="insulin_need" value="হ্যাঁ"> হ্যাঁ</label>
+            <label class="radio-option"><input type="radio" name="insulin_need" value="না"> না</label>
+            <label class="radio-option"><input type="radio" name="insulin_need" value="জানি না"> জানি না</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="field-label">পরিবারে অন্য কেউ ডায়াবেটিসে আক্রান্ত? <span class="en">Any family member with diabetes?</span></label>
+          <textarea name="family_diabetes" placeholder="যেমন: বাবা, মা, ভাই-বোন... (না থাকলে 'নেই' লিখুন)"></textarea>
+        </div>
+        <div class="form-group">
+          <label class="field-label">সন্তানদের ভবিষ্যতে ডায়াবেটিসের ঝুঁকি মনে হয়? <span class="en">Future diabetes risk for your children?</span></label>
+          <div class="radio-group inline">
+            <label class="radio-option"><input type="radio" name="children_risk" value="হ্যাঁ, মনে হয়"> হ্যাঁ</label>
+            <label class="radio-option"><input type="radio" name="children_risk" value="না, মনে হয় না"> না</label>
+            <label class="radio-option"><input type="radio" name="children_risk" value="জানি না"> জানি না</label>
+            <label class="radio-option"><input type="radio" name="children_risk" value="সন্তান নেই"> সন্তান নেই</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-card" style="background:linear-gradient(135deg,#e8f5ee,#f0faf5); border-color:#b8e0cc;">
+        <p style="font-size:0.9rem; color:var(--primary); font-weight:700; margin-bottom:0.4rem;">🎉 সব তথ্য পূরণ হয়েছে!</p>
+        <p style="font-size:0.8rem; color:var(--text-muted); line-height:1.65;">Submit করলে আপনার তথ্য সরাসরি গবেষণা ডেটাবেসে নিরাপদে সংরক্ষিত হবে। আপনার সহযোগিতা পার্বত্য চট্টগ্রামের স্বাস্থ্যসেবার উন্নয়নে সরাসরি অবদান রাখবে।</p>
+      </div>
+
+      <div class="nav-row" style="flex-direction:column; gap:10px;">
+        <button type="submit" class="btn-submit" id="submitBtn">
+          ✅ &nbsp; জরিপ সম্পন্ন করুন ও জমা দিন &nbsp;→
+        </button>
+        <button type="button" class="btn-back" style="width:100%; text-align:center; justify-content:center;" onclick="goPrev(4)">← পূর্ববর্তী ধাপে ফিরুন</button>
+      </div>
+    </div>
+
+  </form>
+
+  <!-- SUCCESS SCREEN -->
+  <div class="success-screen" id="successScreen">
+    <div class="success-card">
+      <div class="success-top">
+        <div class="success-icon-wrap">🎊</div>
+        <h2>আন্তরিক ধন্যবাদ ও কৃতজ্ঞতা!</h2>
+        <p>আপনার মূল্যবান তথ্য গবেষণা ডেটাবেসে নিরাপদে সংরক্ষিত হয়েছে।<br>আপনার অংশগ্রহণ পার্বত্য চট্টগ্রামের ভবিষ্যৎ স্বাস্থ্যসেবা উন্নয়নে গুরুত্বপূর্ণ ভূমিকা রাখবে।</p>
+      </div>
+      <div class="success-body">
+        <div class="success-quote">
+          "পাহাড়ের প্রতিটি মানুষের স্বাস্থ্য ও মঙ্গল আমাদের গবেষণার কেন্দ্রে। আপনার দেওয়া তথ্য থেকেই তৈরি হবে আগামীর সুস্থ পার্বত্য চট্টগ্রাম।"
+        </div>
+
+        <div class="success-team">
+          <div class="success-person">
+            <div class="success-avatar" style="background:#e8f5ee; color:var(--primary);">PC</div>
+            <div class="pinfo">
+              <div class="pname">Pandob Chakma</div>
+              <div class="prole">Co-Lab manager | MSc Researcher</div>
+              <div class="pemail">📧 pandob.cu@gmail.com &nbsp;|&nbsp; 📱 01521-355133</div>
+            </div>
+          </div>
+          <div class="success-person">
+            <div class="success-avatar" style="background:#fff8e6; color:#8a5e00;">AS</div>
+            <div class="pinfo">
+              <div class="pname">Prof. Dr. Atiar Rahman</div>
+              <div class="prole">Research Supervisor | Professor</div>
+              <div class="pemail">📧 atiar@cu.ac.bd</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="success-lab">
+          <h4>🏛️ গবেষণা প্রতিষ্ঠান</h4>
+          <p>
+            <strong>Laboratory and Alternative Medicine and Natural Products Research(AMNPR) </strong><br>
+            Centre for Research and Excelence(CRE)
+            Department of Biochemistry & Molecular Biology<br>
+            University of Chittagong<br>
+            Chattogram-4331, Bangladesh<br>
+            🌐 <a href="https://am-npr.cu.ac.bd" target="_blank" style="color:var(--primary)">www.am-npr.cu.ac.bd</a>
+          </p>
+           
+        </div>
+
+        <div class="success-actions">
+          <a class="btn-whatsapp-success" href="https://wa.me/8801521355133?text=আমি%20CHT%20ডায়াবেটিস%20জরিপ%20সফলভাবে%20জমা%20দিয়েছি%20🎉" target="_blank">
+            💬 WhatsApp-এ জানান আমাদের
+          </a>
+          <button class="btn-another" onclick="location.reload()">🔄 নতুন ফর্ম পূরণ করুন (অন্য পরিবারের সদস্যের জন্য)</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwsB-TLatK5KQtUDHgCYP-AZeU5qjaDPVpiC79Zrsb6PXUpzIF5R4-PcdE-m-TUGGOK/exec";
+const SUBMISSION_KEY = 'cht_diabetes_submitted';
+
+let currentStep = 0;
+const totalSteps = 5;
+const stepLabels = ['সম্মতি ও পরিচয়','খাদ্যাভ্যাস','জীবনযাপন','ওষুধ ও স্বাস্থ্য','ডায়াবেটিস'];
+
+// Check for duplicate submission (same device)
+window.addEventListener('load', () => {
+  if (localStorage.getItem(SUBMISSION_KEY)) {
+    document.getElementById('ipWarning').classList.add('show');
+  }
+});
+
+function startSurvey() {
+  document.getElementById('briefPanel').style.display = 'none';
+  document.getElementById('progressBar').style.display = 'block';
+  document.getElementById('formWrap').style.display = 'block';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function updateProgress(step) {
+  for (let i = 0; i < totalSteps; i++) {
+    const el = document.getElementById('step-ind-' + i);
+    el.classList.remove('active', 'done');
+    if (i < step) el.classList.add('done');
+    else if (i === step) el.classList.add('active');
+  }
+  const pct = Math.round(((step + 1) / totalSteps) * 100);
+  document.getElementById('progress-fill').style.width = pct + '%';
+  document.getElementById('progress-text').textContent = 'ধাপ ' + (step + 1) + ' / ' + totalSteps + ' — ' + stepLabels[step];
+}
+
+function showPanel(n) {
+  document.querySelectorAll('.section-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('panel-' + n).classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// === VALIDATION ===
+function validateStep0() {
+  let ok = true;
+
+  // consent
+  const consent = document.querySelector('input[name="consent"]:checked');
+  const errConsent = document.getElementById('err-consent');
+  if (!consent) { errConsent.classList.add('show'); ok = false; }
+  else { errConsent.classList.remove('show'); }
+
+  // mobile: must be 11 digits
+  const mobile = document.getElementById('fld-mobile');
+  const errMobile = document.getElementById('err-mobile');
+  if (!/^[0-9]{11}$/.test(mobile.value.trim())) {
+    mobile.classList.add('error'); errMobile.classList.add('show'); ok = false;
+  } else { mobile.classList.remove('error'); errMobile.classList.remove('show'); }
+
+  // age
+  const age = document.getElementById('fld-age');
+  const errAge = document.getElementById('err-age');
+  const ageVal = parseInt(age.value);
+  if (!age.value || ageVal < 10 || ageVal > 100) {
+    age.classList.add('error'); errAge.classList.add('show'); ok = false;
+  } else { age.classList.remove('error'); errAge.classList.remove('show'); }
+
+  // gender
+  const gender = document.getElementById('fld-gender');
+  const errGender = document.getElementById('err-gender');
+  if (!gender.value) { gender.classList.add('error'); errGender.classList.add('show'); ok = false; }
+  else { gender.classList.remove('error'); errGender.classList.remove('show'); }
+
+  // education
+  const edu = document.getElementById('fld-education');
+  const errEdu = document.getElementById('err-education');
+  if (!edu.value) { edu.classList.add('error'); errEdu.classList.add('show'); ok = false; }
+  else { edu.classList.remove('error'); errEdu.classList.remove('show'); }
+
+  // ethnicity
+  const eth = document.getElementById('fld-ethnicity');
+  const errEth = document.getElementById('err-ethnicity');
+  if (!eth.value) { eth.classList.add('error'); errEth.classList.add('show'); ok = false; }
+  else { eth.classList.remove('error'); errEth.classList.remove('show'); }
+
+  // district
+  const dist = document.getElementById('fld-district');
+  const errDist = document.getElementById('err-district');
+  if (!dist.value) { dist.classList.add('error'); errDist.classList.add('show'); ok = false; }
+  else { dist.classList.remove('error'); errDist.classList.remove('show'); }
+
+  return ok;
+}
+
+function goNext(from) {
+  if (from === 0 && !validateStep0()) return;
+  currentStep = from + 1;
+  showPanel(currentStep);
+  updateProgress(currentStep);
+}
+
+function goPrev(from) {
+  currentStep = from - 1;
+  showPanel(currentStep);
+  updateProgress(currentStep);
+}
+
+// Radio highlight
+document.querySelectorAll('.radio-option input[type="radio"]').forEach(input => {
+  input.addEventListener('change', function() {
+    const group = this.closest('.radio-group, .check-group');
+    if (group) group.querySelectorAll('.radio-option').forEach(o => o.classList.remove('selected'));
+    this.closest('.radio-option').classList.add('selected');
+  });
+});
+
+// Number inputs: enforce numeric only
+document.querySelectorAll('input[type="number"]').forEach(inp => {
+  inp.addEventListener('input', function() {
+    this.value = this.value.replace(/[^0-9.]/g, '');
+  });
+});
+
+// Tel input: digits only
+document.getElementById('fld-mobile').addEventListener('input', function() {
+  this.value = this.value.replace(/[^0-9]/g, '');
+});
+
+// === FORM SUBMIT ===
+document.getElementById('mainForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const submitBtn = document.getElementById('submitBtn');
+  document.getElementById('loadingOverlay').classList.add('visible');
+  submitBtn.disabled = true;
+  submitBtn.textContent = '⏳ জমা হচ্ছে...';
+
+  const formData = new FormData(this);
+  const data = {};
+  for (let [key, val] of formData.entries()) { data[key] = val; }
+
+  data['timestamp'] = new Date().toLocaleString('bn-BD', { timeZone: 'Asia/Dhaka' });
+  data['submission_date'] = new Date().toISOString().split('T')[0];
+  data['submission_time_utc'] = new Date().toISOString();
+
+  if (data.height && data.weight) {
+    const hM = parseFloat(data.height) * 0.3048;
+    const wKg = parseFloat(data.weight);
+    if (hM > 0 && wKg > 0) data['bmi'] = (wKg / (hM * hM)).toFixed(1);
+  }
+
+  try {
+    await fetch(GOOGLE_SCRIPT_URL, {
+      method: 'POST', mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    localStorage.setItem(SUBMISSION_KEY, new Date().toISOString());
+    document.getElementById('loadingOverlay').classList.remove('visible');
+    document.getElementById('panel-4').style.display = 'none';
+    document.getElementById('successScreen').style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  } catch (err) {
+    document.getElementById('loadingOverlay').classList.remove('visible');
+    submitBtn.textContent = '❌ সমস্যা হয়েছে — আবার চেষ্টা করুন';
+    submitBtn.disabled = false;
+  }
+});
+</script>
+</body>
+</html>
