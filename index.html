@@ -302,7 +302,7 @@ input.error, select.error, textarea.error { border-color: var(--danger); }
     <div class="brief-body">
       <div class="brief-section">
         <div class="brief-section-title">📌 কেন এই গবেষণা?</div>
-        <p>পার্বত্য চট্টগ্রামের চাকমা, মারমা, ত্রিপুরা-সহ বিভিন্ন আদিবাসী জনগোষ্ঠীতে ডায়াবেটিস একটি ক্রমবর্ধমান স্বাস্থ্য সমস্যা হয়ে উঠছে। তবুও এই জনগোষ্ঠীর উপর বাংলাদেশে এখন পর্যন্ত কোনো বৈজ্ঞানিক গবেষণা পরিচালিত হয়নি। আধুনিক খাদ্যাভ্যাসের পরিবর্তন, শারীরিক পরিশ্রম হ্রাস এবং জেনেটিক কারণে এই ঝুঁকি দিন দিন বাড়ছে।</p>
+        <p>পার্বত্য চট্টগ্রামের চাকমা, মারমা, ত্রিপুরা-সহ বিভিন্ন আদিবাসী জনগোষ্ঠীতে ডায়াবেটিস একটি ক্রমবর্ধমান স্বাস্থ্য সমস্যা হয়ে উঠছে। তবুও এই জনগোষ্ঠীর উপর বাংলাদেশে এখন পর্যন্ত কোনো বৈজ্ঞানিক গবেষণা পরিচালিত হয়নি। আধুনিক খাদ্যাভ্যাসের সাথে নিজেদের খাদ্যাভ্যাস পরিবর্তন, শারীরিক পরিশ্রম হ্রাস এবং জেনেটিক কারণে এই ঝুঁকি দিন দিন বাড়ছে।</p>
       </div>
       <div class="brief-section">
         <div class="brief-highlight">
@@ -503,14 +503,23 @@ input.error, select.error, textarea.error { border-color: var(--danger); }
 
         <div class="form-group">
           <label class="field-label">নৃগোষ্ঠী / জাতিসত্তা <span class="req">*</span><span class="en">Ethnic / Indigenous Identity</span></label>
-          <select name="ethnicity" id="fld-ethnicity">
-            <option value="">-- বেছে নিন --</option>
-            <option>চাকমা</option><option>মারমা</option><option>ত্রিপুরা</option>
-            <option>তঞ্চঙ্গ্যা</option><option>বম</option><option>খুমি</option>
-            <option>খিয়াং</option><option>মুরং (ম্রো)</option><option>পাংখুয়া</option>
-            <option>লুসাই (মিজো)</option><option>অন্যান্য</option>
-          </select>
-          <div class="err-msg" id="err-ethnicity">নৃগোষ্ঠী বেছে নিন।</div>
+<select name="ethnicity" id="fld-ethnicity" required>
+    <option value="">-- বেছে নিন / Choose --</option>
+    <option value="Chakma">চাকমা (Chakma)</option>
+    <option value="Marma">মারমা (Marma)</option>
+    <option value="Tripura">ত্রিপুরা (Tripura)</option>
+    <option value="Tanchangya">তঞ্চঙ্গ্যা (Tanchangya)</option>
+    <option value="Bawm">বম (Bawm)</option>
+    <option value="Khumi">খুমি (Khumi)</option>
+    <option value="Khiyang">খিয়াং (Khiyang)</option>
+    <option value="Mro">মুরং (Mro)</option>
+    <option value="Pankhua">পাংখুয়া (Pankhua)</option>
+    <option value="Lushai">লুসাই / মিজো (Lushai)</option>
+    <option value="Chak">চাক (Chak)</option>
+    <option value="Rakhine">রাখাইন (Rakhine)</option>
+    <option value="Other">অন্যান্য (Other)</option>
+</select>
+<div class="err-msg" id="err-ethnicity">নৃগোষ্ঠী বেছে নিন।</div>
         </div>
 
         <div class="form-group">
@@ -1010,7 +1019,7 @@ input.error, select.error, textarea.error { border-color: var(--danger); }
         <div class="success-quote">"পাহাড়ের প্রতিটি মানুষের স্বাস্থ্য ও মঙ্গল আমাদের গবেষণার কেন্দ্রে। আপনার দেওয়া তথ্য থেকেই তৈরি হবে আগামীর সুস্থ পার্বত্য চট্টগ্রাম।"</div>
         <div class="success-team">
           <div class="success-person">
-            <div class="success-avatar" style="background:#e8f5ee;color:var(--primary);">PC</div>
+            <div class="success-avatar" style="background:#e8eff5;color:var(--primary);">PC</div>
             <div class="pinfo">
               <div class="pname">Pandob Chakma</div>
               <div class="prole">Co-Lab Manager | MSc Researcher</div>
